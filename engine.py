@@ -4,8 +4,8 @@ import pyglet
 from pyglet.window import key
 from core import GameElement
 
-SCREEN_X = 800
-SCREEN_Y = 700
+SCREEN_X = 1920
+SCREEN_Y = 1080
 
 game_window = pyglet.window.Window(SCREEN_X, SCREEN_Y)
 
@@ -40,7 +40,10 @@ def setup_images():
             "Cat": "Character Cat Girl.png",
             "Horns": "Character Horn Girl.png",
             "Girl": "Character Pink Girl.png",
-            "Princess": "Character Princess Girl.png"
+            "Princess": "Character Princess Girl.png",
+            "Water": "Water Block.png", 
+            "PurpleDragon": "PurpleDragon.png",
+            "RedDragon": "RedDragon.png"
             }
 
     for k,v in filenames.items():
@@ -75,7 +78,7 @@ class Board(object):
                 # On the boundaries
                 game_map.append(["Block"] * width)
             else:
-                row = ["Block"] + (["GrassBlock"] * inner_width) + ["Block"]
+                row = ["Block"] + (["Water"] * inner_width) + ["Block"]
                 game_map.append(row)
         
         self.base_board = game_map
