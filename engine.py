@@ -71,15 +71,21 @@ class Board(object):
 
 
         # Make a map with a stoneblock border and filled with grass
-        game_map = []
-        inner_width = width-2
+        # game_map = []
+        # inner_width = width-2
+        # for i in range(height):
+        #     if i == 0 or i == height-1:
+        #         # On the boundaries
+        #         game_map.append(["Block"] * width)
+        #     else:
+        #         row = ["Block"] + (["Water"] * inner_width) + ["Block"]
+        #         game_map.append(row)
+        game_map=[]
         for i in range(height):
-            if i == 0 or i == height-1:
-                # On the boundaries
-                game_map.append(["Block"] * width)
-            else:
-                row = ["Block"] + (["Water"] * inner_width) + ["Block"]
-                game_map.append(row)
+            if i == 0 or i == 1:
+                game_map.append(["GrassBlock"] * width)
+            
+
         
         self.base_board = game_map
         self.content_layer = []
