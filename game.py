@@ -76,7 +76,8 @@ class Gem(GameElement):
     SOLID = False
     def interact(self, player):
         player.inventory.append(self)
-        GAME_BOARD.draw_msg("You just acquired a gem! You have %d gems!"%(len(player.inventory)))
+        if len(player.inventory) <= 10:
+            GAME_BOARD.draw_msg("You just acquired a gem! You have %d gems!"%(len(player.inventory)))
         if len(player.inventory) == 10:
             mykey = Key()
             GAME_BOARD.register(mykey)
