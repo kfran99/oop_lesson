@@ -42,8 +42,12 @@ def setup_images():
             "Girl": "Character Pink Girl.png",
             "Princess": "Character Princess Girl.png",
             "Water": "Water Block.png", 
-            "PurpleDragon": "PurpleDragon.png",
-            "RedDragon": "RedDragon.png"
+            "PurpleDragon": "LegoDragon1.png",
+            "RedDragon": "RedDragon.png",
+            "TallWall": "Wall Block Tall.png",
+            "DirtBlock": "Dirt Block.png",
+            "Chest": "Chest Closed.png",
+            "Fire": "fire1.png"
             }
 
     for k,v in filenames.items():
@@ -71,19 +75,21 @@ class Board(object):
 
 
         # Make a map with a stoneblock border and filled with grass
-        # game_map = []
+        game_map = []
         # inner_width = width-2
-        # for i in range(height):
-        #     if i == 0 or i == height-1:
-        #         # On the boundaries
-        #         game_map.append(["Block"] * width)
-        #     else:
-        #         row = ["Block"] + (["Water"] * inner_width) + ["Block"]
-        #         game_map.append(row)
-        game_map=[]
         for i in range(height):
-            if i == 0 or i == 1:
-                game_map.append(["GrassBlock"] * width)
+            if i <= 1:
+                # On the boundaries
+                game_map.append(["StoneBlock"] *2 + (["GrassBlock"] * 8))
+            elif i == 7 or i == 8 or i == 9:
+                game_map.append(["GrassBlock"] * 4 + (["DirtBlock"] * 3) + (["GrassBlock"] * 3))
+            else:
+                row = (["GrassBlock"] * 10)
+                game_map.append(row)
+        # game_map=[]
+        # for i in range(height):
+        #     if i == 0 or i == 1:
+        #         game_map.append(["GrassBlock"] * width)
             
 
         
